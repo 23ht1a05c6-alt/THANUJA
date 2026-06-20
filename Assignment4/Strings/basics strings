@@ -1,0 +1,46 @@
+#sequence of characters
+which is enclosed by "",'',sigle trible codes
+
+#string id immutable in always
+#mutable means: can he change whwn decalre some program
+#immutable mrans: conot change declare
+#in a string are start with index value"0"
+
+
+name = "Tanu"
+print(name)
+3siling method 
+3siling method
+siling method
+StopIteration
+#end
+# type error
+#index error
+
+
+
+
+
+| Iterator                           | Generator                      |
+| ---------------------------------- | ------------------------------ |
+| Uses `__iter__()` and `__next__()` | Uses `yield`                   |
+| More code                          | Less code                      |
+| Manual implementation              | Automatic implementation       |
+| Harder to write                    | Easier to write                |
+| Returns values using `next()`      | Generates values using `yield` |
+
+
+
+yield in Python
+
+yield is a keyword used inside a function to make it a generator.
+
+
+
+| `return`                                | `yield`                               |
+| --------------------------------------- | ------------------------------------- |
+| Ends the function immediately           | Pauses the function                   |
+| Returns a single value                  | Returns values one by one             |
+| Function cannot continue after `return` | Function resumes from where it paused |
+| Used in normal functions                | Used in generator functions           |
+| Stores all results if needed            | Generates results lazily (on demand)  |

@@ -1,0 +1,5 @@
+Name: Tanu
+Course: Pythonthanu
+thanuja
+hello world
+C:\Users\Admin\AppData\Local\Programs\Python\Python313\python.exe "c:/Users/Admin/Test1/Assignment4/Strings/oops/constructor.py/Assignment221/Adstraction/Patterns/Assignment22/Excepton handling/file handling/append.py"

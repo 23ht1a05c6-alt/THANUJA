@@ -1,0 +1,62 @@
+time complexity faster result for example google
+space complexitty means
+time coplexity measures how the running 
+three technices
+1. stop watch time
+import time
+start=time = excution time
+
+
+
+technique tree order of growth
+notations
+1.bigo notations asymtotatic notations
+means it  will b calculate uper  bound
+iin awrost case it can tae
+2.omega notations:Best case complexity
+3.teta avrage case notations
+ex: if arr[
+   2. arr[sum last case] it is wrost case complexity
+  1. Bigeo notationit can calculate wrost time growth
+   it will be focus n measuring and scalability and machine independent
+   focus on growth
+ * bigo rules:
+ addtive constant
+ mulitple constant
+ ex: 1+2n = 2n
+ remove multiple constant can be come 'n 
+ order of program
+ #space complexity calculate
+ x = 10
+ y = 20
+ z = x+y 
+
+ for i in range(121)
+ for i in range(121+n)
+ nested looops in array will br come n*n formate
+for i in range n8n + n+10
+linear time complexity denoted order of n 
+input increae and time increase
+n inreases as well as time increases
+3. quatetic line order of n^2
+nested loops
+ in outer llop runs n times
+ inaer loop runs n time 
+ logrtmic time complexity logn
+ Binary search is best example for iter
+ 
+
+
+
+ exponsional order of n wrost case
+ this exponsional is not uesd very low not must e used
+ withloop is dividing with 2 
+ orde of 2
+
+
+
+ * space complexity measures memory used by  your algorthim
+ typs of space complexity
+ 1. input space
+ 
+2. auxiliary space

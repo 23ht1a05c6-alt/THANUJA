@@ -1,0 +1,460 @@
+#the program is the set of instructions
+'''
+what is a rocess?
+very program independenty
+each process have separte memory
+it store on desk
+it helps to run on interpector
+A Process is a program that is currently running.
+
+When you execute a program, the operating system loads it into memory (RAM) and creates a process
+Ex:
+crome, vscode, spotify
+chrome has 
+* characterstics of 
+Dynamic
+A process is active and executes instructions.
+Has a Unique Process ID (PID)
+Each process is assigned a unique identifier by the operating system.
+Own Memory Space
+A process has its own memory for code, data, and variables.
+Uses System Resources
+It uses CPU time, memory, files, and I/O devices.
+Has Different States
+New
+Ready
+Running
+Waiting/Blocked
+Terminated
+Independent Execution
+One process generally runs independently of another process.
+Contains One or More Threads
+A process can have multiple threads executing tasks concurrently.
+* what is thread?
+a thread is smallest unit of excution insid of process
+a thread is light weight processs
+Ex:
+If you are using a web browser:
+
+One thread loads the webpage.
+Another thread downloads files.
+Another thread plays videos.
+
+All these threads work inside the same browser process.
+* Multiprocessing Example
+
+Multiprocessing means running multiple processes at the same time.
+
+Real-Life Example
+
+🏫 School
+
+Principal's Office → Process 1
+Accounts Office → Process 2
+Library → Process 3
+
+Each works independently. This is like multiprocessing
+* difference between thread and process
+process:
+. it has separte memory
+. it has independent
+. it has separte memory
+. creation is slow
+| Process                         | Thread                                                  |
+| ------------------------------- | ------------------------------------------------------- |
+| A process is a running program. | A thread is a small unit of execution inside a process. |
+| Has its own memory.             | Shares memory with other threads in the same process.   |
+| Creation is slower.             | Creation is faster.                                     |
+| Uses more system resources.     | Uses fewer system resources.                            |
+| Communication is slower.        | Communication is faster.                                |
+| Can contain multiple threads.   | Exists inside a process.                                |
+* Why is a Thread Faster than a Process?
+A thread is faster because it shares the memory and resources of its process.
+
+what is conqeence?
+Concurrency means multiple tasks make progress during the same period of time.
+
+The tasks may not run at the exact same instant, but the CPU switches between them quickly, giving the appearance that they are running together.
+
+Example
+
+📚 While studying, you:
+
+Read notes
+Write important points
+Solve problems
+
+You switch between these tasks. This is concurrency.
+
+what is parallesium?
+Parallelism means executing multiple tasks at the exact same time using multiple CPU cores or processors.
+
+Example
+
+Imagine 2 people working together:
+
+👩 Person 1 → Washing clothes
+👨 Person 2 → Cooking food
+
+Both tasks happen simultaneously. This is parallelism.
+
+Computer Example
+
+If a computer has multiple CPU cores:
+
+Core 1 calculates Task A
+Core 2 calculates Task B
+
+Both tasks run at the same time.
+
+Parallelism vs Concurrency
+Concurrency	Parallelism
+Tasks make progress together	Tasks run simultaneously
+Can use one CPU core	Usually requires multiple CPU cores
+Tasks are switched rapidly	Tasks execute at the same time
+Interview Definition
+
+Parallelism is the execution of multiple tasks simultaneously using multiple processors or CPU cores to increase performance and speed.
+
+Simple Memory Trick
+Concurrency = Taking turns on tasks.
+Parallelism = Doing tasks at the same time. 
+
+# arallelism Using CPU
+
+A CPU can have multiple cores.
+
+Single-core CPU → Executes one task at a time (uses concurrency by switching tasks).
+Multi-core CPU → Executes multiple tasks at the same time (parallelism).
+Example
+Single-Core CPU (Concurrency)
+Task A → Task B → Task A → Task B
+
+The CPU switches between tasks very quickly.
+
+Dual-Core CPU (Parallelism)
+Core 1 → Task A
+Core 2 → Task B
+
+Both tasks run simultaneously.
+
+Real-Life Example
+
+🖥️ 4-Core CPU
+
+Core 1 → Chrome
+Core 2 → VS Code
+Core 3 → Music Player
+Core 4 → Calculator
+
+All can run at the same time.
+
+Interview Answer
+
+
+---------------
+
+
+import threading
+
+def display():
+    print("hello")
+
+t1 = threading.Thread(target=display) #here target is parameter
+t1.start() #is method
+
+
+---------------
+
+# multi threding object
+
+import threading
+
+def task1():
+    print("Task 1 is running")
+
+def task2():
+    print("Task 2 is running")
+
+def task3():
+    print("Task 3 is running")
+
+t1 = threading.Thread(target=task1)
+t2 = threading.Thread(target=task2)
+t3 = threading.Thread(target=task3)
+
+t1.start()
+t2.start()
+t3.start()
+
+--------------
+import threading
+
+def task1():
+    for i in range(1, 6):
+        print("Task 1:", i)
+
+def task2():
+    for i in range(1, 6):
+        print("Task 2:", i)
+
+t1 = threading.Thread(target=task1)
+t2 = threading.Thread(target=task2)
+
+t1.start()
+t2.start()
+
+
+
+--------------
+
+import threading
+
+def even():
+    for i in range(1, 11):
+        if i % 2 == 0:
+            print("Even:", i)
+
+def odd():
+    for i in range(1, 11):
+        if i % 2 != 0:
+            print("Odd :", i)
+
+t1 = threading.Thread(target=even)
+t2 = threading.Thread(target=odd)
+
+t1.start()
+t2.start()
+print("Program Finished")
+#os schduar can decede first that
+
+-------------
+import threading
+
+def display():
+    print(threading.current_thread().name)
+display()
+
+
+#by useing arguments
+
+import threading #module
+
+def square(n):
+    print("Square =", n * n)
+
+t1 = threading.Thread(target=square, args=(5,))
+
+t1.start()
+
+-----------
+
+#Time-Based Program Using Multithreading
+
+#The time module is often used with threads to create delays.
+
+import threading
+import time
+
+def numbers():
+    for i in range(1, 6):
+        print(i)
+        time.sleep(1)
+
+t1 = threading.Thread(target=numbers)
+
+t1.start()
+t1.join()
+
+print("Finished")
+------------
+# retry mechnasium
+import threading
+import time
+
+def task():
+    retries = 3
+
+    for attempt in range(1, retries + 1):
+        try:
+            print("Attempt:", attempt)
+
+            if attempt < 3:
+                raise Exception("Failed")
+
+            print("Success")
+            break
+
+        except Exception as e:
+            print("Error:", e)
+            time.sleep(2)
+
+t1 = threading.Thread(target=task)
+
+t1.start()
+
+--------------
+# join()method
+join() Method in Threads
+
+The join() method is used to wait for a thread to complete its execution before moving to the next line of the program.
+
+Simple Meaning
+
+👉 join() = “Stop main program until thread finishes
+
+
+import threading
+import time
+
+def task():
+    for i in range(1, 4):
+        print("Running:", i)
+        time.sleep(1)
+
+t1 = threading.Thread(target=task)
+
+t1.start()
+t1.join()
+
+print("Program Finished")
+
+
+
+import threading
+
+def square(n):
+    print("Square of", n, "=", n * n)
+
+t1 = threading.Thread(target=square, args=(2,))
+t2 = threading.Thread(target=square, args=(4,))
+t3 = threading.Thread(target=square, args=(6,))
+
+t1.start()
+t2.start()
+t3.start()
+
+t1.join()
+t2.join()
+t3.join()
+
+print("All threads completed")
+
+import threading
+
+def cube(n):
+    print("Cube of", n, "=", n * n * n)
+
+t1 = threading.Thread(target=cube, args=(2,))
+t2 = threading.Thread(target=cube, args=(3,))
+t3 = threading.Thread(target=cube, args=(4,))
+
+t1.start()
+t2.start()
+t3.start()
+
+t1.join()
+t2.join()
+t3.join()
+
+print("All threads completed")
+
+
+
+
+import threading
+
+def task1():
+    print("Task 1: Downloading file")
+
+def task2():
+    print("Task 2: Playing music")
+
+t1 = threading.Thread(target=task1)
+t2 = threading.Thread(target=task2)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+
+print("All tasks completed")
+
+
+
+# download file
+
+import threading
+import time
+
+def download_file(file_name):
+    print("Starting download:", file_name)
+    time.sleep(2)  # simulate download time
+    print("Completed download:", file_name)
+
+files = ["file1.mp4", "file2.mp3", "file3.pdf"]
+
+threads = []
+
+for file in files:
+    t = threading.Thread(target=download_file, args=(file,))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+print("All downloads completed")
+
+
+import threading
+import time
+
+def download(file_name):
+    print("Starting download:", file_name)
+    time.sleep(2)   # simulate download time
+    print("Completed download:", file_name)
+
+files = ["song1.mp3", "song2.mp3", "image1.jpg", "image2.png"]
+
+threads = []
+
+for file in files:
+    t = threading.Thread(target=download, args=(file,))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+print("All files downloaded successfully")
+
+'''
+
+
+import threading
+import time
+
+def download_movie(movie_name):
+    print("Starting download:", movie_name)
+    time.sleep(3)  # simulate download time
+    print("Completed download:", movie_name)
+
+movies = ["Movie1.mp4", "Movie2.mp4", "Movie3.mp4"]
+
+threads = []
+
+for movie in movies:
+    t = threading.Thread(target=download_movie, args=(movie,))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+print("All movies downloaded successfully")
+
+
+
+# teacher

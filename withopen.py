@@ -1,0 +1,3 @@
+C:\Users\Admin\AppData\Local\Programs\Python\Python313\python.exe "c:/Users/Admin/Test1/Assignment4/Strings/oops/constructor.py/Assignment221/Adstraction/Patterns/Assignment22/Excepton handling/file handling/withopen.py" C:\Users\Admin\AppData\Local\Programs\Python\Python313\python.exe "c:/Users/Admin/Test1/Assignment4/Strings/oops/constructor.py/Assignment221/Adstraction/Patterns/Assignment22/Excepton handling/file handling/csv/csvbasics.py"
+thanuja 89C:\Users\Admin\AppData\Local\Programs\Python\Python313\python.exe "c:/Users/Admin/Test1/Assignment4/Strings/oops/constructor.py/Assignment221/Adstraction/Patterns/Assignment22/Excepton handling/file handling/csv/csvbasics.py"
+Ravi Priya
