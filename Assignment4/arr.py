@@ -7,4 +7,3 @@ print(s1 & s2)
 
 
 
-prefix sum
